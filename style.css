@@ -1,0 +1,59 @@
+body {
+    background-color: #2E2E2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piano {
+    display: flex;
+    flex-direction: row;
+}
+
+.octave {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+}
+
+.halfNoteDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    margin-left: calc(56px/2);
+}
+
+.wholeNote {
+    width: calc(108.62px/2);
+    height: calc(460.81px/2);
+    border-radius: 0px 0px calc(16.46px/2) calc(16.46px/2);
+    background-color: white;
+    margin-right: calc(8.78px/2);
+    cursor: pointer;
+}
+.wholeNote:hover {
+    background-color: #8180FF;
+}
+
+.piano > .octave:first-child > .wholeNote:first-child {
+    border-top-left-radius: calc(16.46px/2);
+}
+.piano > .octave:last-child > .wholeNote:last-child {
+    border-top-right-radius: calc(16.46px/2);
+}
+
+
+.halfNote {
+    width: calc(72.41px/2);
+    height: calc(307.21px/2);
+    border: calc(5.49px/2) solid #2E2E2E;
+    border-top: none;
+    border-radius: 0px 0px calc(16.4575px/2) calc(16.4575px/2);
+    background-color: black;
+    margin-right: calc(65.83px/2);
+    cursor: pointer;
+}
+.halfNote:hover {
+    background-color: #8180FF;
+}
