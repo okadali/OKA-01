@@ -5,15 +5,11 @@ body {
     justify-content: center;
 }
 
-.piano {
-    display: flex;
-    flex-direction: row;
-}
 
-.octave {
+.piano, .octave {
     display: flex;
     flex-direction: row;
-    width: max-content;
+    width: max-content
 }
 
 .halfNoteDiv {

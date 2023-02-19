@@ -7,33 +7,50 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="piano">
-            <div class="octave">
-                <div class="wholeNote" data-note="c-4"></div>
-                <div class="halfNoteDiv">
-                    <div class="halfNote" data-note="c#4"></div>
-                    <div class="halfNote" data-note="d#4" style="margin-right: 60px;"></div>
-                    <div class="halfNote" data-note="f#4" style="margin-right: 25px;"></div>
-                    <div class="halfNote" data-note="g#4" style="margin-right: 25px;"></div>
-                    <div class="halfNote" data-note="a#4"></div>
-                </div>
-                <div class="wholeNote" data-note="d-4"></div>
-                <div class="wholeNote" data-note="e-4"></div>
-                <div class="wholeNote" data-note="f-4"></div>
-                <div class="wholeNote" data-note="g-4"></div>
-                <div class="wholeNote" data-note="a-4"></div>
-                <div class="wholeNote" data-note="b-4"></div>
+        <div class="wrapper">
+            <div>
+                <input type="range" id="unisonWidthRange" min="0" max="261" value="10">
+                <span>Unison Width</span>
             </div>
-            <div class="octave">
-                <div class="wholeNote" data-note="c-5"></div>
-                <div class="halfNoteDiv">
-                    <div class="halfNote" data-note="c#5"></div>
-                    <div class="halfNote" data-note="d#5" style="margin-right: 60px;"></div>
+            <div class="piano">
+                <div class="octave">
+                    <div class="wholeNote" data-note="c-4"></div>
+                    <div class="halfNoteDiv">
+                        <div class="halfNote" data-note="c#4"></div>
+                        <div class="halfNote" data-note="d#4" style="margin-right: 60px;"></div>
+                        <div class="halfNote" data-note="f#4" style="margin-right: 25px;"></div>
+                        <div class="halfNote" data-note="g#4" style="margin-right: 25px;"></div>
+                        <div class="halfNote" data-note="a#4"></div>
+                    </div>
+                    <div class="wholeNote" data-note="d-4"></div>
+                    <div class="wholeNote" data-note="e-4"></div>
+                    <div class="wholeNote" data-note="f-4"></div>
+                    <div class="wholeNote" data-note="g-4"></div>
+                    <div class="wholeNote" data-note="a-4"></div>
+                    <div class="wholeNote" data-note="b-4"></div>
                 </div>
-                <div class="wholeNote" data-note="d-5"></div>
-                <div class="wholeNote" data-note="e-5"></div>
+                <div class="octave">
+                    <div class="wholeNote" data-note="c-5"></div>
+                    <div class="halfNoteDiv">
+                        <div class="halfNote" data-note="c#5"></div>
+                        <div class="halfNote" data-note="d#5" style="margin-right: 60px;"></div>
+                        <div class="halfNote" data-note="f#5" style="margin-right: 25px;"></div>
+                        <div class="halfNote" data-note="g#5" style="margin-right: 25px;"></div>
+                        <div class="halfNote" data-note="a#5"></div>
+                    </div>
+                    <div class="wholeNote" data-note="d-5"></div>
+                    <div class="wholeNote" data-note="e-5"></div>   
+                    <div class="wholeNote" data-note="f-5"></div>
+                    <div class="wholeNote" data-note="g-5"></div>
+                    <div class="wholeNote" data-note="a-5"></div>
+                    <div class="wholeNote" data-note="b-5"></div>
+                </div>
             </div>
+
         </div>
+        
+        
+
         <script src="script.js"></script>
     </body>
 </html>
