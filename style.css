@@ -53,3 +53,17 @@ body {
 .halfNote:hover {
     background-color: #8180FF;
 }
+
+.soundChanger {
+    background-color: white;
+    width: 100%;
+    border: 5px solid black;
+    height: 30px;
+}
+.rangeRow {
+    display: flex;
+    flex-direction: row;
+}
+.wrapper {
+    width: max-content;
+}

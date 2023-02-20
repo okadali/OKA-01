@@ -8,10 +8,25 @@
     </head>
     <body>
         <div class="wrapper">
-            <div>
-                <input type="range" id="unisonWidthRange" min="0" max="261" value="10">
-                <span>Unison Width</span>
+            <div class="soundChanger">
+                <input type="range" id="unisonWidthRange" min="0" max="1" step="0.01" value="0.026">
+                <span>UNISON WIDTH</span>
             </div>
+            <div class="rangeRow">
+                <div class="soundChanger">
+                    <input type="range" id="lowpassFrqRange" min="0" max="1" step="0.01" value="0.5">
+                    <span>FRQ</span>
+                    <input type="range" id="lowpassQRange" min="0" max="1" step="0.01" value="0.2">
+                    <span>Q</span>
+                </div>
+                <div class="soundChanger">
+                    <input type="range" id="echoTimeRange" min="0" max="0.1" step="0.01" value="0">
+                    <span>TIME</span>
+                    <input type="range" id="echoFdbkRange" min="0" max="0.5" step="0.01" value="0">
+                    <span>FDBK</span>
+                </div>
+            </div>
+            
             <div class="piano">
                 <div class="octave">
                     <div class="wholeNote" data-note="c-4"></div>

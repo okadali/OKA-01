@@ -28,25 +28,52 @@ const NOTES = {
     'b-5' : 987.77,
 }
 
-let unisonWidth = 10;
+let unisonWidthSlider = 0.026;
+let lowpassFrqSlider = 0.5;
+let lowpassQSlider = 0.2;
+let echo = {
+    time: 0,
+    feedback: 0,
+}
 
 
+const maxDuration = 2;
+const maxFilterFreq = actx.sampleRate / 2;
+const oscBank = new Array(3);
 
-let oscBank = new Array(3);
-const createOscillators = (freq,detune) => {
+const createOscillators = (freq,detune) => {    
     osc = actx.createOscillator();
     osc.type = "sawtooth";
     osc.frequency.value = freq;
     osc.detune.value = detune;
-    osc.connect(actx.destination);
+
+    const filter = actx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = lowpassFrqSlider * maxFilterFreq;
+    filter.Q.value = lowpassQSlider * 30;
+    osc.connect(filter);
+    
+    
+    const delayNode = actx.createDelay();
+    delayNode.delayTime.value = echo.time * maxDuration;   
+    delayNode.connect(actx.destination);
+
+    const gainNode = actx.createGain();
+    gainNode.gain.value = echo.feedback;
+
+    filter.connect(delayNode)
+    delayNode.connect(gainNode);
+    gainNode.connect(delayNode);
+
+
     osc.start();
     return osc;
 }
 const noteOn = (note) => {
     const freq = NOTES[note];
     oscBank[0] = createOscillators(freq,0);
-    oscBank[1] = createOscillators(freq, -unisonWidth);
-    oscBank[2] = createOscillators(freq, unisonWidth);
+    oscBank[1] = createOscillators(freq, -unisonWidthSlider * 261.63);
+    oscBank[2] = createOscillators(freq, unisonWidthSlider * 261.63);
 }
 
 document.querySelectorAll('div[data-note]').forEach((button) => {
@@ -66,8 +93,17 @@ document.querySelectorAll('div[data-note]').forEach((button) => {
 
 
 document.getElementById("unisonWidthRange").addEventListener('input',(e) => {
-    unisonWidth = e.target.value;
+    unisonWidthSlider = e.target.value;
 })
-
-
-
+document.getElementById("lowpassFrqRange").addEventListener('input',(e) => {
+    lowpassFrqSlider = e.target.value;
+})
+document.getElementById("lowpassQRange").addEventListener('input',(e) => {
+    lowpassQSlider = e.target.value;
+})
+document.getElementById("echoTimeRange").addEventListener('input',(e) => {
+    echo.time = e.target.value;
+})
+document.getElementById("echoFdbkRange").addEventListener('input',(e) => {
+    echo.feedback = e.target.value;
+})
