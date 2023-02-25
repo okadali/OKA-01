@@ -40,7 +40,8 @@ const WAVEFORMS_SHORT = [
     "tri"
 ]
 
-let waveformType = 2
+let volumeLevel = 0.3;
+let waveformType = 2;
 let unisonWidthSlider = 0.026;
 let lowpassFrqSlider = 0.5;
 let lowpassQSlider = 0.2;
@@ -64,7 +65,11 @@ const createOscillators = (freq,detune) => {
     filter.type = "lowpass";
     filter.frequency.value = lowpassFrqSlider * maxFilterFreq;
     filter.Q.value = lowpassQSlider * 30;
-    osc.connect(filter);
+
+    const volumeLevelNode = actx.createGain();
+    volumeLevelNode.gain.value = volumeLevel;
+    osc.connect(volumeLevelNode);
+    volumeLevelNode.connect(filter)
     
     
     const delayNode = actx.createDelay();
@@ -124,4 +129,7 @@ document.getElementById("echoFdbkRange").addEventListener('input',(e) => {
 document.getElementById("wawTypeRange").addEventListener('input',(e) => {
     waveformType = e.target.value;
     document.getElementById("wawTypeSpan").innerText = WAVEFORMS_SHORT[waveformType].toUpperCase();
+})
+document.getElementById("volRange").addEventListener('input',(e) => {
+    volumeLevel = e.target.value;
 })
