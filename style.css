@@ -1,5 +1,16 @@
+:root {
+    --theme: #2E2E2E;
+    --primaryColor: #61AFA6
+}
+
+* {
+    color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+}
+
 body {
-    background-color: #2E2E2E;
+    background-color: var(--theme);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +22,6 @@ body {
     flex-direction: row;
     width: max-content
 }
-
 .halfNoteDiv {
     position: absolute;
     display: flex;
@@ -19,7 +29,6 @@ body {
     width: max-content;
     margin-left: calc(56px/2);
 }
-
 .wholeNote {
     width: calc(108.62px/2);
     height: calc(460.81px/2);
@@ -29,7 +38,7 @@ body {
     cursor: pointer;
 }
 .wholeNote:hover {
-    background-color: #8180FF;
+    background-color: var(--primaryColor);
 }
 
 .piano > .octave:first-child > .wholeNote:first-child {
@@ -38,12 +47,10 @@ body {
 .piano > .octave:last-child > .wholeNote:last-child {
     border-top-right-radius: calc(16.46px/2);
 }
-
-
 .halfNote {
     width: calc(72.41px/2);
     height: calc(307.21px/2);
-    border: calc(5.49px/2) solid #2E2E2E;
+    border: calc(5.49px/2) solid var(--theme);
     border-top: none;
     border-radius: 0px 0px calc(16.4575px/2) calc(16.4575px/2);
     background-color: black;
@@ -51,19 +58,51 @@ body {
     cursor: pointer;
 }
 .halfNote:hover {
-    background-color: #8180FF;
+    background-color: var(--primaryColor);
 }
 
-.soundChanger {
-    background-color: white;
-    width: 100%;
-    border: 5px solid black;
-    height: 30px;
-}
-.rangeRow {
-    display: flex;
-    flex-direction: row;
-}
+
 .wrapper {
     width: max-content;
+}
+
+.soundChangerWrapper {
+    display: inline-block;
+}
+.soundChanger {
+    margin: 8px;
+    border: 1px solid white;
+}
+.soundChangerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.miniBox {
+    width: 10px;
+    height: 10px;
+    background-color: var(--primaryColor);
+    display: inline-block;
+    margin-left: 2px;
+}
+.legendSpan {
+    margin-right: 2px;
+}
+
+.rangeDiv {
+    width: 230px;
+    height: 30px;
+}
+.rangeSpan {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 7px;
+}
+input[type="range"] {
+    width: 180px;
+    position: absolute;
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 6px;
 }

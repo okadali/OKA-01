@@ -33,6 +33,12 @@ const WAVEFORMS = [
     "sawtooth",
     "triangle"
 ]
+const WAVEFORMS_SHORT = [
+    "sin",
+    "sqr",
+    "swt",
+    "tri"
+]
 
 let waveformType = 2
 let unisonWidthSlider = 0.026;
@@ -106,6 +112,7 @@ document.getElementById("lowpassFrqRange").addEventListener('input',(e) => {
     lowpassFrqSlider = e.target.value;
 })
 document.getElementById("lowpassQRange").addEventListener('input',(e) => {
+    console.log(e.target.value);
     lowpassQSlider = e.target.value;
 })
 document.getElementById("echoTimeRange").addEventListener('input',(e) => {
@@ -116,5 +123,5 @@ document.getElementById("echoFdbkRange").addEventListener('input',(e) => {
 })
 document.getElementById("wawTypeRange").addEventListener('input',(e) => {
     waveformType = e.target.value;
-    document.getElementById("wawTypeSpan").innerText = WAVEFORMS[waveformType].toUpperCase();
+    document.getElementById("wawTypeSpan").innerText = WAVEFORMS_SHORT[waveformType].toUpperCase();
 })
