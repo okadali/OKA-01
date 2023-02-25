@@ -8,10 +8,18 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="soundChanger">
-                <input type="range" id="unisonWidthRange" min="0" max="1" step="0.01" value="0.026">
-                <span>UNISON WIDTH</span>
+            <div class="rangeRow">
+                <div class="soundChanger">
+                    <input type="range" id="unisonWidthRange" min="0" max="1" step="0.01" value="0.026">
+                    <span>UNISON WIDTH</span>
+                </div>
+                <div class="soundChanger">
+                    <input type="range" id="wawTypeRange" min="0" max="3" step="1" value="2">
+                    <span id="wawTypeSpan">SAWTOOTH</span>
+                </div>
+
             </div>
+            
             <div class="rangeRow">
                 <div class="soundChanger">
                     <input type="range" id="lowpassFrqRange" min="0" max="1" step="0.01" value="0.5">

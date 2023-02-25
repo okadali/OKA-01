@@ -27,7 +27,14 @@ const NOTES = {
     'a#5' : 932.33,
     'b-5' : 987.77,
 }
+const WAVEFORMS = [
+    "sine",
+    "square",
+    "sawtooth",
+    "triangle"
+]
 
+let waveformType = 2
 let unisonWidthSlider = 0.026;
 let lowpassFrqSlider = 0.5;
 let lowpassQSlider = 0.2;
@@ -43,7 +50,7 @@ const oscBank = new Array(3);
 
 const createOscillators = (freq,detune) => {    
     osc = actx.createOscillator();
-    osc.type = "sawtooth";
+    osc.type = WAVEFORMS[waveformType];
     osc.frequency.value = freq;
     osc.detune.value = detune;
 
@@ -106,4 +113,8 @@ document.getElementById("echoTimeRange").addEventListener('input',(e) => {
 })
 document.getElementById("echoFdbkRange").addEventListener('input',(e) => {
     echo.feedback = e.target.value;
+})
+document.getElementById("wawTypeRange").addEventListener('input',(e) => {
+    waveformType = e.target.value;
+    document.getElementById("wawTypeSpan").innerText = WAVEFORMS[waveformType].toUpperCase();
 })
