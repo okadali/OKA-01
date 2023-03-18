@@ -104,11 +104,6 @@ document.querySelectorAll('div[data-note]').forEach((button) => {
     button.addEventListener('mousedown', () => {
         noteOn(button.dataset.note);
     })
-    button.addEventListener('mouseenter', () => {
-        if(mouseDown) {
-            noteOn(button.dataset.note);
-        }
-    })
 
     button.addEventListener('mouseup', stopOsc);
     button.addEventListener('mouseleave', stopOsc);
@@ -138,13 +133,3 @@ document.getElementById("wawTypeRange").addEventListener('input',(e) => {
 document.getElementById("volRange").addEventListener('input',(e) => {
     volumeLevel = e.target.value;
 })
-
-
-
-var mouseDown = 0;
-document.body.onmousedown = function() { 
-  ++mouseDown;
-}
-document.body.onmouseup = function() {
-  --mouseDown;
-}
